@@ -12,7 +12,7 @@ console.log(x); //output: 15
 var x = 5; //Set variable x as 5
     
 function addToX(amount) {
-    return x + amount; 
+    return x + amount; //sending value back to result and ends function
     console.log("hello there");
 }
     
