@@ -25,21 +25,20 @@ while(start < end) {
     end -= 2; //end=10,8,6
 }
 
-//Write a function reverse(arr) to reverse an array
+// //Write a function reverse(arr) to reverse an array
 var arr =["a","b","c","d","e"];
-function reverse(arr){
-    for(var left=0; left<arr.length/2; left++){
-        var temp= arr[left];
-        arr[left]=arr[arr.length-1-left];
-        arr[arr.length-1-left]=temp;
-        }
-    }
-console.log(reverse(arr))
 
-    
-for (var i=0; i< Math.floor arr.length/2, i++){
-    [arr[i], arr[arr.length-1-i]] = [arr.length-1-i], arr[i]; //gets rid of temp
+for(var i=0; i<arr.length/2; i++) {
+    var temp= arr[i];
+    arr[i]=arr[arr.length-1-i];
+    arr[arr.length-1-i]=temp;
 }
+console.log(arr)
+//i=OR
+for(var i=0; i<arr.length/2; i++) {
+    [arr[i], arr[arr.length-1-i]] = [arr[arr.length-1-i], arr[i]]; //gets rid of temp
+}
+console.log (arr)
 
 
 
