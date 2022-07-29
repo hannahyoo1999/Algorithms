@@ -24,17 +24,17 @@ var pokémon = [
     { "id": 148, "name": "Dragonair",  "types": ["dragon"] }
 ];
 
-for(var i=0; i<pokémon.length; i++) {
-    if(pokémon[i].id % 3 == 0) {
-        console.log(pokémon[i]);
-    }
-}
+// for(var i=0; i<pokémon.length; i++) {
+//     if(pokémon[i].id % 3 == 0) {
+//         console.log(pokémon[i]);
+//     }
+// }
 
-for(var i=0; i<pokémon.length; i++) {
-    if(pokémon[i].types.length >= 2){
-        console.log(pokémon[i]);
-    }
-}
+// for(var i=0; i<pokémon.length; i++) {
+//     if(pokémon[i].types.length >= 2){
+//         console.log(pokémon[i]);
+//     }
+// }
 
 
 for(var i=0; i<pokémon.length; i++) {
@@ -45,10 +45,18 @@ for(var i=0; i<pokémon.length; i++) {
     }
 }
 
-for(var i =0; i<pokémon.length; i++){
-    if(pokémon[i].types.length == 2) {
-        if (pokémon[i].types[1] == "flying"){
-            console.log(pokémon[i].types[0])
-        }
+// for(var i =0; i<pokémon.length; i++){
+//     if (pokémon[i].types[1] == "flying"){
+//         console.log(pokémon[i].types[0])
+//     }
+// }
+
+var arr=[];
+for(var i=0; i<pokémon.length; i++) {
+    if(pokémon[i].types.length == 1 && pokémon[i].types=="poison") {
+        pokémon[i].name = pokémon[i].name.split("").reverse().join("");
+        pokémon.push(pokémon[i].name);
     }
+    
 }
+console.log(pokémon[i])
