@@ -16,7 +16,16 @@ function reverString(str) {
     return newString
     /*for (var i = str.length-1;i>0;i--){
         newString += str[i];
+    }
+    if (str === "") // This is the terminal case that will end the recursion
+        return "";
+    else
+        return reverseString(str.substr(1)) + str.charAt(0); //substring is like slice 
+    let rev=""
+    for (let char of str){
+        rev = char + rev
     }*/
+
 }
 
 
