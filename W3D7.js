@@ -26,19 +26,30 @@ const expected5 = "ba"
 * @param {string} str A string that may contain duplicates.
 * @returns {string} The given string with any duplicate characters removed.
 */
-function stringDedupe(str) {
-    var newStr = ""
-    for (var i = 0; i<str.length; i++){
-        for (var j= 0; j<str.length; j++){
-            if (str[i] == newStr[j]){
-                break;
-            }
-            if (j == i){
-                newStr+= str[i];
-            }
+// function stringDedupe(str) {
+//     var newStr = ""
+//     for (var i = 0; i<str.length; i++){
+//         for (var j= 0; j<str.length; j++){
+//             if (str[i] == newStr[j]){
+//                 break;
+//             }
+//             if (j == i){
+//                 newStr+= str[i];
+//             }
+//         }
+//     }
+//     return newStr
+// }
+function stringDedupe(str){
+    let newStr= "";
+    const seen = {};
+    for (let i = str.length-1; i >=0; i --){ //loop backwards to include last occurrence
+        if(!seen[str[i]]){
+            newStr = str[i] + newStr
+            seen[str[i]] = true;
         }
     }
-    return newStr
+        return newStr;
 }
 
 console.log(stringDedupe(str1));
@@ -73,17 +84,33 @@ const expectedC = "cba fed ihg";
 * @returns {string} The given string with each word's letters reversed.
 */
 function reverseWords(str) {
-    var str = str.split(" ");
+    var splitStr = str.split(" "); //split the word at space
     var newStr= "";
-    for (var i = 0; i<str.length; i++){
-        for (var j = str[i].length-1; j>=0; j--){
-            newStr+= str[i][j];
+    for (var i = 0; i<splitStr.length; i++){ //goes through each word in spitStr
+        for (var j = splitStr[i].length-1; j>=0; j--){ //goes through each character backwards
+            newStr+= splitStr[i][j];
         }
-        newStr+= " "
+        newStr+= " " //add space that was taken away at split
     }
     return newStr
 }
-    
+
+function reverseWords(str) {
+    let reversed = "";
+    let temp = ""
+    for (let char of str){
+        if (char === " "){
+            reversed += temp + " "
+            temp = ""
+        } else {
+            temp = char + temp
+        }
+    }
+    //capture last word
+    reversed += temp;
+    return reversed
+}
+
 
 console.log(reverseWords(strA)) //expectedA: olleh
 console.log(reverseWords(strB)) //expectedB: olleh dlrow
