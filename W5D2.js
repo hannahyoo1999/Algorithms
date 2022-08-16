@@ -30,26 +30,46 @@ const expected4 = [42, 0, 6];
  * @returns {Array<any>} A new array of interleaved items.
  */
 
+// My function: 
+// function interleaveArrays(arr1, arr2) {
+//     let newArr = []
+//     let shortest_arr= arr1
+//     let longest_arr = arr2
+//     if (arr1.length > arr2.length){
+//         shortest_arr = arr2
+//         longest_arr = arr1
+//     }for (let i = 0; i < shortest_arr.length; i++) {
+//         newArr.push(arr1[i], arr2[i])
+//     }
+//         // if (shortest_arr == arr1){
+//         //     for (let j = shortest_arr.length; j<arr2.length; j++){
+//         //         newArr.push(arr2[j])}
+//         // }else {
+//         //     for (let j = shortest_arr.length; j<arr1.length; j++){
+//         //         newArr.push(arr1[j])}
+//         // }
+//         for (let j = shortest_arr.length; j<longest_arr.length; j++){
+//             newArr.push(longest_arr[j])}
+//     return newArr
+// }
+
 function interleaveArrays(arr1, arr2) {
-    let newArr = []
-    let shortest_arr= arr1
-    let longest_arr = arr2
-    if (arr1.length > arr2.length){
-        shortest_arr = arr2
-        longest_arr = arr1
-    }for (let i = 0; i < shortest_arr.length; i++) {
-        newArr.push(arr1[i], arr2[i])
+    let result = []
+    if(arr1.length > arr2.length){
+        len = arr1.length;
     }
-        // if (shortest_arr == arr1){
-        //     for (let j = shortest_arr.length; j<arr2.length; j++){
-        //         newArr.push(arr2[j])}
-        // }else {
-        //     for (let j = shortest_arr.length; j<arr1.length; j++){
-        //         newArr.push(arr1[j])}
-        // }
-        for (let j = shortest_arr.length; j<longest_arr.length; j++){
-            newArr.push(longest_arr[j])}
-    return newArr
+    else{
+        len = arr2.length
+    }
+    for(var i = 0; i < len; i++){
+        if(i < arr1.length){
+            result.push(arr1[i])
+        }
+        if(i < arr2.length){
+            result.push(arr2[i])
+        }
+    }
+    return result
 }
 
 console.log(interleaveArrays(arrA1, arrB1))
