@@ -28,12 +28,45 @@ const expected4 = { quarter: 3, dime: 2, penny: 4 };
  *    needed.
  */
 
+// function fewestCoinChange(cents) {
+//     var count = {};
+//     count.quarter = 0
+//     count.dime = 0
+//     count.nickel = 0
+//     count.penny = 0
+//     while (cents != 0){
+//         if (cents >= 25){
+//             count.quarter +=1
+//             cents -= 25;
+//         }
+//         else if (cents >= 10){
+//             if (cents >= 10){
+//                 count.dime += 1
+//                 cents -= 10;
+//             }
+//         }
+//         else if (cents >= 5){
+//             if (cents >= 5){
+//                 count.nickel += 1;
+//                 cents -= 5;
+//             }
+//         }
+//         else if (cents >= 1){
+//             if (cents >= 1){
+//                 count.penny += 1;
+//                 cents -= 1;
+//             }
+//         }
+//     }
+//     return count
+// }
+
 function fewestCoinChange(cents) {
     var count = {};
     while (cents != 0){
         if (cents >= 25){
-            count.quarter = Math.floor(cents/25)
-            cents %= 25;
+            count.quarter = Math.floor(cents/25) //use this to get us an non-decimal int of coin
+            cents %= 25; 
         }
         else if (cents >= 10){
             if (cents >= 10){
