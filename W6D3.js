@@ -55,4 +55,4 @@ function fibonacci(num){
     return fib
 }
 
-console.log(fibonacci(8))
+console.log(fibonacci(80))
