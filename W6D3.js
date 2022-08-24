@@ -48,11 +48,21 @@ console.log(fibonacci(num5)) // Expected: 3
 console.log(fibonacci(num6)) // Expected: 21
 
 // memoization
-function fibonacci(num){
-    for (var fib = [0,1], i = 1; i < num; i++)
-    fib.push(fib[i]+ fib[i-1])
-
-    return fib
+function fibonacci(num, memo){
+    memo = memo || {}
+    if (num <2) return num;
+    return memo[num] =  fibonacci(num-1, memo) + fibonacci(num-2, memo)
+    // for (var fib = [0,1], i = 1; i < num; i++){
+    //     fib.push(fib[i]+ fib[i-1])
+    // }
+    // return fib
 }
 
-console.log(fibonacci(80))
+console.log(fibonacci(45))
+
+function fibonacci(num, memo = {0: 0, 1: 1}){
+    if (memo[num] == undefined) {
+        memo[num] =  fibonacci(num-1, memo) + fibonacci(num-2, memo)
+    }
+    return memo[num]
+}
