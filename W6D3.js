@@ -46,3 +46,13 @@ console.log(fibonacci(num3)) // Expected: 1
 console.log(fibonacci(num4)) // Expected: 2
 console.log(fibonacci(num5)) // Expected: 3
 console.log(fibonacci(num6)) // Expected: 21
+
+// memoization
+function fibonacci(num){
+    for (var fib = [0,1], i = 1; i < num; i++)
+    fib.push(fib[i]+ fib[i-1])
+
+    return fib
+}
+
+console.log(fibonacci(8))
