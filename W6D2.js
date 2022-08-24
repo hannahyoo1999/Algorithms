@@ -27,7 +27,7 @@ function factorial(n) {
     if (n <= 0) {
         return 1;
     }else{
-    result = factorial(Math.floor(n-1)) * Math.floor(n);
+        result = factorial(Math.floor(n-1)) * Math.floor(n);
     }
     return result;
 }
