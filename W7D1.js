@@ -54,3 +54,4 @@ function bubbleSort(nums = []) {
 
 console.log(bubbleSort(numsRandomOrder))
 console.log(bubbleSort(numsReversed))
+console.log(bubbleSort(numsOrdered))
