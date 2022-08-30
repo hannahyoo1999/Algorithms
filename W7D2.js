@@ -33,7 +33,7 @@ const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  * @returns {Array<number>} The given array after being sorted.
 */
 
-function selectionSort(nums = []) {
+function selectionSort_min(nums = []) {
     // One by one move boundary of unsorted subarray
     for (let i = 0; i < nums.length - 1; i++) {
         // Find the minimum element in unsorted array
@@ -50,6 +50,25 @@ function selectionSort(nums = []) {
     }
     return nums;
 } 
+
+function selectionSort_max(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        let biggest = arr[0]
+        let end = arr.length-i
+        let biggest_index = 0
+        for (var j = 0; j <  arr.length - i; j++){
+            if(arr[j] > biggest){
+                biggest = arr[j]
+                biggest_index = j
+            }
+            end = j
+        }
+        var temp = arr[end]
+        arr[end] = arr[biggest_index]
+        arr[biggest_index] = temp              
+    }
+        return(arr);
+}
 
 console.log(selectionSort(numsRandomOrder))
 console.log(selectionSort(numsReversed))
