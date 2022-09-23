@@ -55,27 +55,28 @@ const nums4 = [2, 1];
  *    being processed.
  * @returns {Array<number>} The idx where left section of smaller items ends.
  */
+
 function partition(nums = [], left = 0, right = nums.length - 1) {
     let pivot = nums[right];
-    let i = left - 1 ;
-    for (let j = left; j<= right -1; j ++){
-        if (nums[j]<pivot){
+    let i = left - 1;
+    for (let j = left; j <= right - 1; j++) {
+        if (nums[j] < pivot) {
             i++
-            [nums[i], nums[j]]=[nums[j], nums[i]]
+            [nums[i], nums[j]] = [nums[j], nums[i]]
         }
     }
-    [nums[i+1], nums[right]]=[nums[right], nums[i+1]]
+    [nums[i + 1], nums[right]] = [nums[right], nums[i + 1]]
     console.log(nums)
-    return (i+1)
+    return (i + 1)
 }
 
 console.log(partition(nums1))
 
-function quickSort(nums){
+function quickSort(nums) {
     if (nums.length <= 1) {
         return nums;
     }
-    
+
     const pivot = nums[nums.length - 1];
     const leftarr = [];
     const right = [];
@@ -84,9 +85,52 @@ function quickSort(nums){
         nums[i] < pivot ? leftarr.push(nums[i]) : right.push(nums[i])
     }
     return [...quickSort(leftarr), pivot, ...quickSort(right)];
-    }
+}
 
 console.log(quickSort(nums2))
 console.log(quickSort(nums3))
 console.log(quickSort(nums4))
+
+function partition2(nums = [], left = 0, right = nums.length - 1) {
+    let pivot = nums[Math.floor((left + right) / 2)]
+    i = left
+    j = right
+    
+    while (i <= j) {
+        while (nums[i] < pivot) {
+            i++
+        }
+        
+        while (nums[j] > pivot) {
+            j--
+        }
+        
+        if (i <= j) {
+            [nums[i], nums[j]] = [nums[j], nums[i]]
+            i++
+            j--
+        }
+    }
+    return i
+}
+
+console.log(partition2(nums1))
+
+function quickSort2(nums, left = 0, right=nums.length-1) {
+    let index;
+    if (nums.length > 1) {
+        index = partition(nums, left, right); //index returned from partition
+        if (left < index - 1) { //more elements on the left side of the pivot
+            quickSort(nums, left, index - 1);
+        }
+        if (index < right) { //more elements on the right side of the pivot
+            quickSort(nums, index, right);
+        }
+    }
+    return nums;
+}
+
+console.log(quickSort2(nums2))
+console.log(quickSort2(nums3))
+console.log(quickSort2(nums4))
 
