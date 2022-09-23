@@ -76,7 +76,7 @@ const k1 = 2; // First 2 most frequent number
 // expected1 = [1, 2];
 // Explanation: return the two most frequent elements, 1 and 2 are the two most frequent elements
 
-const nums5 = [0, 2,0, 0, 2, 3]; // [0,0,0,2,2,3]
+const nums5 = [0, 2, 0, 0, 2, 3]; // [0,0,0,2,2,3]
 const k2 = 1; // most frequent number
 // expected2 = [0];
 // Explanation: k being 1 means return the single most frequent element
@@ -100,5 +100,32 @@ const k3 = 3;
  * @returns {Array<number>} The k most frequently occurring numbers.
  */
 function kMostFrequent(nums, k) {
-    count = 0
+  let numToFrequency = new Map();
+  let mostFreqNums = [];
+  for(let i = 0; i <= nums.length; i++){
+    mostFreqNums.push([])
+  }
+  
+  for (const num of nums) {
+    if (numToFrequency.has(num)) {
+      numToFrequency.set(num, numToFrequency.get(num)+1);
+    }else{
+      numToFrequency.set(num, 1)
+    }
+  }
+
+  for( let [key, value] of numToFrequency){
+    mostFreqNums[value].push(key)
+  }
+  let result = [];
+  for(let i = mostFreqNums.length -1 ; i > 0 && result.length < k; i --){
+    if(mostFreqNums[i] !== null){
+      result.push(...mostFreqNums[i])
+    }
+  }
+  return result
 }
+
+console.log(kMostFrequent(nums4, k1))
+console.log(kMostFrequent(nums5, k2))
+console.log(kMostFrequent(nums6, k3))
