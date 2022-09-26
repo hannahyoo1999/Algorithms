@@ -1,0 +1,5 @@
+Array for:
+for( const eachItem of Array)
+
+Object for:
+for( const eachKey in Object)
