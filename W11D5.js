@@ -102,6 +102,7 @@ list2.insertAtBack(8);
 // list2: (1) --> (2) --> (3) --> null
 console.log(list2.secondToLast())
 list2.removeData(7);
+list2.removeData(8);
 
 list1.printList();
 list2.printList();
