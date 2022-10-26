@@ -19,7 +19,7 @@ var containsDuplicate = function (nums) {
     return false
 };
 
-//HeapSort 
+//HeapSort/QuickSort
 //Time: 0(N*log(N)) | Space 0(1)
 var containsDuplicate = function (nums) {
     nums.sort((a, b) => a-b);
